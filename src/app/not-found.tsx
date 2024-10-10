@@ -3,13 +3,13 @@
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container'
 
-export const metadata = {title: " 404 | Miligram"}
+export const metadata = {title: " 404 | ZapZapp"}
 
 export default function NotFound() {
 
   return (
     <Container>
-        <Typography> 404|Stranka nenajdena </Typography>
+        <Typography> také tu není bráško sorry </Typography>
     </Container>
   );
 }

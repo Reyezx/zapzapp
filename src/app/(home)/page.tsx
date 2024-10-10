@@ -4,7 +4,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import NavBar from "@/components/NavBar"
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Domov | Miligram"}
+export const metadata = {title: " Home | ZapZapp"}
 
 export default function Home() {
 

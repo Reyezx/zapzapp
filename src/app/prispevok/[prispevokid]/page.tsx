@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Detail prispevkov | Miligram"}
+export const metadata = {title: " Detail prispevkov | ZapZapp"}
 
 export default function PostDetail({ params, }: {params: {prispevokid: string};}) {
 

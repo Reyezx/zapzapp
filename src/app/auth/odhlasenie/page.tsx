@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Odhlasenie| Miligram"}
+export const metadata = {title: " Odhlásenie| ZapZapp"}
 
 export default function SignOut() {
 

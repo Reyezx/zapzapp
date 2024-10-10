@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " gdpr| Miligram"}
+export const metadata = {title: " GDPR| ZapZapp"}
 
 export default function Gdpr() {
 

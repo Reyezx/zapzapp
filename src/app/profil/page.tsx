@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Zoznam profilov | Miligram"}
+export const metadata = {title: " Zoznam profilov | ZapZapp"}
 
 export default function ProfileList() {
 
