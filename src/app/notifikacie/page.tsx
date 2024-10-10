@@ -1,15 +1,15 @@
 // src/app/notifikacie/page.tsx
 
+
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Notifikácie | ZapZapp"}
+export const metadata = {title: " notifikacie| Miligram"}
 
-export default function Notifs() {
+export default function Notification() {
+
   return (
-    <Container>
-      <Typography> Notifikácie </Typography>
-    </Container>
-    
+
+    <Typography> notifikacie</Typography>
+
   );
 }

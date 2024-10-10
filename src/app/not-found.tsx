@@ -1,16 +1,15 @@
-// src/app/not-found.tsx
+// src/app/o-mne/page.tsx
 
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
+import Container from '@mui/material/Container'
 
-export const metadata = { title: "404 | ZapZapp"}
+export const metadata = {title: " 404 | Miligram"}
 
 export default function NotFound() {
+
   return (
-
     <Container>
-      <Typography> také tu nemní sorry bráško </Typography>
+        <Typography> 404|Stranka nenajdena </Typography>
     </Container>
-
   );
 }

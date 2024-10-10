@@ -1,15 +1,15 @@
-// src/app/auth/prihlasenie/page.tsx
+//src/app/auth/prihlasenie/page.tsx
+
 
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Prihlásenie | ZapZapp"}
+export const metadata = {title: " Prihlasenie| Miligram"}
 
-export default function Login() {
+export default function SignIn() {
+
   return (
-    <Container>
-      <Typography> Prihlásenie </Typography>
-    </Container>
-    
+
+    <Typography> Prihlasenie</Typography>
+
   );
 }

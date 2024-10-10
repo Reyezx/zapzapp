@@ -1,15 +1,15 @@
-// src/app/auth/registrácia/page.tsx
+//src/app/auth/register/page.tsx
+
 
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Registrácia | ZapZapp"}
+export const metadata = {title: " Registracaia| Miligram"}
 
-export default function Register() {
+export default function SignUp() {
+
   return (
-    <Container>
-      <Typography> Registrácia </Typography>
-    </Container>
-    
+
+    <Typography> Registracia</Typography>
+
   );
 }

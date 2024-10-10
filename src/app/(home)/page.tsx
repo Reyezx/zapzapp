@@ -1,15 +1,15 @@
 // src/app/page.tsx
 
+import BottomNavigation from '@mui/material/BottomNavigation';
+import NavBar from "@/components/NavBar"
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Domov | ZapZapp"}
+export const metadata = {title: " Domov | Miligram"}
 
 export default function Home() {
+
   return (
-    <Container>
-      <Typography> Home Page </Typography>
-    </Container>
-    
+
+    <><Typography> Domovska Stranka </Typography></>
   );
 }

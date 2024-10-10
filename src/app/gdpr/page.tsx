@@ -1,15 +1,15 @@
 // src/app/gdpr/page.tsx
 
-import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "GDPR | ZapZapp"}
+import Typography from '@mui/material/Typography';
+
+export const metadata = {title: " gdpr| Miligram"}
 
 export default function Gdpr() {
+
   return (
-    <Container>
-      <Typography> GDPR </Typography>
-    </Container>
-    
+
+    <Typography> gdpr</Typography>
+
   );
 }

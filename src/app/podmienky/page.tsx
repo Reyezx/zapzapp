@@ -1,16 +1,15 @@
 // src/app/podmienky/page.tsx
 
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
+import Container from '@mui/material/Container'
 
-export const metadata = { title: "Podmienky | ZapZapp"}
+export const metadata = {title: " Podmienky | Miligram"}
 
-export default function Conditions() {
+export default function Home() {
+
   return (
-
     <Container>
-      <Typography> Podmienky používateľa </Typography>
+        <Typography> Toto neni podmienka </Typography>
     </Container>
-
   );
 }

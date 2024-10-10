@@ -1,15 +1,15 @@
 // src/app/hladanie/page.tsx
 
-import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Hľadanie | ZapZapp"}
+import Typography from '@mui/material/Typography';
+
+export const metadata = {title: " hladat| Miligram"}
 
 export default function Search() {
+
   return (
-    <Container>
-      <Typography> Hľadanie </Typography>
-    </Container>
-    
+
+    <Typography> hladat</Typography>
+
   );
 }

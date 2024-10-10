@@ -1,15 +1,15 @@
 // src/app/pridat/page.tsx
 
+
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
 
-export const metadata = { title: "Formulár na pridanie príspevku | ZapZapp"}
+export const metadata = {title: " pridat| Miligram"}
 
-export default function PostAdd() {
+export default function Add() {
+
   return (
-    <Container>
-      <Typography> Formulár na pridanie príspevku </Typography>
-    </Container>
-    
+
+    <Typography> pridat</Typography>
+
   );
 }
