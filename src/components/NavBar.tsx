@@ -7,7 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useRouter } from 'next/navigation';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -20,13 +20,13 @@ export default function Navbar() {
     setValue(newValue);
   };
 
-  const authIcons = [<BottomNavigationAction label="Domov" icon={<HomeIcon />} onClick={() => {router.push("/")}} />,
-                     <BottomNavigationAction label="Profily" icon={<AccountCircleIcon />} onClick={() => {router.push("/profil")}}/>,
-                     <BottomNavigationAction label="Príspevky" icon={<AddCircleIcon />} onClick={() => {router.push("/prispevok")}} />,
-                     <BottomNavigationAction label="Odhlásiť sa" onClick={() => signOut()} icon={<LogoutIcon />} />]
+  const authIcons = [<BottomNavigationAction key="domov" label="Domov" icon={<HomeIcon />} onClick={() => {router.push("/")}} />,
+                     <BottomNavigationAction key="profily" label="Profily" icon={<AccountCircleIcon />} onClick={() => {router.push("/profil")}}/>,
+                     <BottomNavigationAction key="prispevky" label="Príspevky" icon={<AddCircleIcon />} onClick={() => {router.push("/prispevok")}} />,
+                     <BottomNavigationAction key="logout" label="Odhlásiť sa" onClick={() => signOut()} icon={<LogoutIcon />} />]
   
-  const nonAuthIcons = [<BottomNavigationAction label="Domov" icon={<HomeIcon />} onClick={() => {router.push("/")}} />,
-                        <BottomNavigationAction label="Prihlásenie" icon={<LoginIcon />} onClick={() => {router.push("/auth/prihlasenie")}} />]
+  const nonAuthIcons = [<BottomNavigationAction key="domov" label="Domov" icon={<HomeIcon />} onClick={() => {router.push("/")}} />,
+                        <BottomNavigationAction key="login" label="Prihlásenie" icon={<LoginIcon />} onClick={() => {router.push("/auth/prihlasenie")}} />]
 
 
   return (
