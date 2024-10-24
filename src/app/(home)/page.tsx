@@ -1,14 +1,17 @@
 // src/app/page.tsx
 
+"use client"
 
-import Typography from '@mui/material/Typography';
-
-export const metadata = {title: " Home | ZapZapp"}
+import { useSession } from 'next-auth/react';
+import HomeLoggedIn from '@/sections/HomeLoggedIn';
+import HomeNotLoggedIn from '@/sections/HomeNotLoggedIn';
 
 export default function Home() {
+  const { data: session, status } = useSession();
 
-  return (
+  if (status === 'loading') {
+    return <p>Načítavanie...</p>;
+  }
 
-    <><Typography> Domovská Stranka </Typography></>
-  );
+  return session ? <HomeLoggedIn /> : <HomeNotLoggedIn />;
 }
