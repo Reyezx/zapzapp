@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 
 export const metadata = {title: " Detail profilu | ZapZapp"}
 
-export default function ProfileDetail({ params, }: {params: {id: string};}) {
+export default function ProfileDetail() {
 
   return (
 
-    <Typography> Detail profilu {params.id} </Typography>
+    <Typography> Detail profilu </Typography>
 
   );
 }
