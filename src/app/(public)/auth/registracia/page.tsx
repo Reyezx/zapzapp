@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Registrácia| ZapZapp"}
+export const metadata = {title: " Registrácia | ZapZapp"}
 
 export default function SignUp() {
 

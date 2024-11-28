@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Notifikácie| ZapZapp"}
+export const metadata = {title: " Notifikácie | ZapZapp"}
 
 export default function Notification() {
 

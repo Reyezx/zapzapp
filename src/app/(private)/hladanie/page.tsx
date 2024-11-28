@@ -3,7 +3,7 @@
 
 import Typography from '@mui/material/Typography';
 
-export const metadata = {title: " Hladať| ZapZapp"}
+export const metadata = {title: " Hladať | ZapZapp"}
 
 export default function Search() {
 

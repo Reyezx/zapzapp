@@ -7,7 +7,7 @@ import Navbar from "@/components/NavBar";
 import AuthProvider from "../components/AuthProvider";
 
 export const metadata: Metadata = {
-  title: "SnapZoška",
+  title: "ZapZapp",
   description: "Created by students of SPŠE Zochova 9, Bratislava",
 };
 

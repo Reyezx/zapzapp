@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import SecurityIcon from '@mui/icons-material/Security';
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -26,11 +27,12 @@ export default function Navbar() {
                      <BottomNavigationAction key="logout" label="Odhlásiť sa" onClick={() => signOut()} icon={<LogoutIcon />} />]
   
   const nonAuthIcons = [<BottomNavigationAction key="domov" label="Domov" icon={<HomeIcon />} onClick={() => {router.push("/")}} />,
+                        <BottomNavigationAction key="gdpr" label="GDPR" icon={<SecurityIcon />} onClick={() => {router.push("/gdpr")}} />,
                         <BottomNavigationAction key="login" label="Prihlásenie" icon={<LoginIcon />} onClick={() => {router.push("/auth/prihlasenie")}} />]
 
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', position: "fixed", bottom: 0 }}>
       <BottomNavigation
         showLabels
         value={value}
