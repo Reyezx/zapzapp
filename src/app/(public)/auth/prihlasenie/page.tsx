@@ -4,37 +4,53 @@
 import { signIn } from "next-auth/react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import GoogleIcon from '@mui/icons-material/Google'; // Icon for Google login
+import Container from "@mui/material/Container";
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function LoginPage() {
   const handleSignIn = () => {
-    signIn('google'); // Initiates Google login
+    signIn('google');
   };
 
+  const topdivision = window.innerHeight * 0.05;
+
   return (
-    <Box
+    <Container
+      maxWidth="xs"
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        gap: 2,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        p: 3,
+        bgcolor: "background.paper",
+        boxShadow: 3,
+        borderRadius: 2,
+        mx: "auto",
+        mt: 2
       }}
     >
       <Typography variant="h4" component="h1">
-        Prihláste sa pomocou Google
+        Prihlásenie
+      </Typography>
+      <Typography color="text.secondary">
+        Nemáte účet? <a href="registracia">Zaregistrujte sa</a>
       </Typography>
 
       <Button
-        variant="contained"
+        variant="outlined"
         startIcon={<GoogleIcon />}
         onClick={handleSignIn}
-        sx={{ mt: 2 }}
+        sx={{ mb: 1, mt: 1 }}
       >
         Prihlásiť sa pomocou Google
       </Button>
-    </Box>
+      <Button
+        variant="outlined"
+        startIcon={<GitHubIcon />}
+      >
+        Prihlásiť sa pomocou Githubu
+      </Button>
+    </Container>
   );
 }

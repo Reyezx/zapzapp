@@ -1,15 +1,12 @@
-//src/app/auth/odhlasenie/page.tsx
 
 
-import Typography from '@mui/material/Typography';
+// src/app/auth/odhlasenie/page.tsx
 
-export const metadata = {title: " Odhlásenie | ZapZapp"}
+import SignOutView from "@/sections/SignOutView";
+
+export const metadata = { title : 'Odhlasenie | ZapZapp'};
 
 export default function SignOut() {
 
-  return (
-
-    <Typography> Odhlasenie</Typography>
-
-  );
+  return <SignOutView />
 }

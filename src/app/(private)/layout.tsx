@@ -2,7 +2,7 @@
 
 import AuthGuard from "@/components/AuthGuard";
 
-export const metadata = { title: "Protected | ZapZapp" };
+export const metadata = { title: "Protected | SnapZoška" };
 
 export default function PrivateLayout({
   children,
@@ -11,7 +11,7 @@ export default function PrivateLayout({
 }) {
   return (
     <AuthGuard>
-      {children} {/* Render private pages */}
+      {children}
     </AuthGuard>
   );
 }

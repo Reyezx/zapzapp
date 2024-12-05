@@ -14,13 +14,9 @@ export default function AuthGuard({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (status === "unauthenticated" ) {
-      router.push('/auth/registracia');
+      router.push('/auth/prihlasenie');
     }
   }, [status, router]);
-
-  if (status == "loading") {
-    return <Typography>Loading...</Typography>
-  }
 
   return <>{children}</>;
 }

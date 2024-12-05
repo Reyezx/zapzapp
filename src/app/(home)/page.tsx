@@ -1,17 +1,25 @@
-// src/app/page.tsx
+// src/app/(home)/page.tsx
 
-"use client"
 
-import { useSession } from 'next-auth/react';
-import HomeLoggedIn from '@/sections/HomeLoggedIn';
-import HomeNotLoggedIn from '@/sections/HomeNotLoggedIn';
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
-export default function Home() {
-  const { data: session, status } = useSession();
+export const metadata = { title: "Domov | ZapZapp" };
 
-  if (status === 'loading') {
-    return <p>Načítavanie...</p>;
+export default async function HomePage() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    redirect("/prispevok");
   }
 
-  return session ? <HomeLoggedIn /> : <HomeNotLoggedIn />;
+  return (
+    <Container>
+      <Typography variant='h4'> Domovská stránka - Neprihlásený user </Typography>
+      <Typography variant='h6'> Prihláste sa, aby ste mohli pridať príspevky a zobraziť profil. </Typography>
+    </Container>
+  );
 }

@@ -9,7 +9,7 @@ export default function HomeNotLoggedIn() {
     <>
       <Typography variant="h4">Vitajte na ZapZapp!</Typography>
       <Typography>Aby ste získali prístup k príspevkom a profilom, prosím prihláste sa.</Typography>
-      <Button variant="contained" color="primary" onClick={() => signIn()}>
+      <Button variant="contained" onClick={() => signIn()} color="secondary">
         Prihlásiť sa
       </Button>
     </>

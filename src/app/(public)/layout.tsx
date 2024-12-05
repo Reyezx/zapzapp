@@ -9,7 +9,7 @@ export default function PublicLayout({
 }) {
   return (
     <div>
-      {children} {/* Render public pages */}
+      {children}
     </div>
   );
 }
