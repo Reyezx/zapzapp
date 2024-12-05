@@ -7,7 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { useRouter } from 'next/navigation';
-import { useSession, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SecurityIcon from '@mui/icons-material/Security';
@@ -19,7 +19,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import Article from '@mui/icons-material/Article';
 
 export default function Navbar() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [value, setValue] = React.useState('/');
   const router = useRouter();
   const { toggleTheme, isDarkMode} = useTheme();
