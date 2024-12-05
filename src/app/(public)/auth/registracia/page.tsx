@@ -13,8 +13,6 @@ export default function RegisterPage() {
     signIn('google');
   };
 
-  const topdivision = window.innerHeight * 0.05;
-
   return (
     <Container
       maxWidth="xs"
