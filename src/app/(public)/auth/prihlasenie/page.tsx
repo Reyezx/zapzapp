@@ -13,7 +13,6 @@ export default function LoginPage() {
     signIn('google');
   };
 
-  const topdivision = window.innerHeight * 0.05;
 
   return (
     <Container
