@@ -5,7 +5,6 @@
 import React, { ReactNode, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation';
-import { Typography } from '@mui/material';
 
 export default function AuthGuard({ children }: { children: ReactNode }) {
   const { status } = useSession();

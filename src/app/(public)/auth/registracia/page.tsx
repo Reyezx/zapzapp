@@ -18,9 +18,12 @@ export default function RegisterPage() {
   };
   const [isChecked, setIsChecked] = React.useState(false);
 
+<<<<<<< HEAD
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
+=======
+>>>>>>> 6703b0666d0a9db85ade8c794c3f50e4747ed74f
   return (
     <Box
       sx={{
