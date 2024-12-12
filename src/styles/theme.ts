@@ -1,38 +1,38 @@
 import { createTheme } from '@mui/material/styles';
 
-// Define the light theme palette
+// Light theme colors
 const lightPalette = {
   primary: {
-    main: '#1976d2', // blue
+    main: '#F5A9B8', // pink
   },
   secondary: {
-    main: '#dc004e', // pink
+    main: '#5BCEFA', // light blue
   },
   background: {
-    default: '#fafafa', // light background
-    paper: '#ffffff', // paper background
+    default: '#fafafa', 
+    paper: '#ffffff', 
   },
   text: {
-    primary: '#000000', // black text
-    secondary: '#555555', // gray text
+    primary: '#000000', 
+    secondary: '#555555', 
   },
 };
 
-// Define the dark theme palette (slightly lighter dark colors)
+// Dark theme colors
 const darkPalette = {
   primary: {
-    main: '#e91e63', // light blue
+    main: '#D162A4', // pink
   },
   secondary: {
-    main: '#dc004e', // pink
+    main: '#FF9A56', // light orange
   },
   background: {
-    default: '#1a1a1a', // slightly lighter than #121212
-    paper: '#2c2c2c', // lighter paper background
+    default: '#1a1a1a', 
+    paper: '#2c2c2c', 
   },
   text: {
-    primary: '#fff', // light white text (instead of pure white)
-    secondary: '#a0a0a0', // lighter gray text
+    primary: '#fff', 
+    secondary: '#a0a0a0', 
   },
 };
 

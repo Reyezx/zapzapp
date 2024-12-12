@@ -3,29 +3,33 @@
 "use client";
 
 import { signOut } from "next-auth/react";
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Box, Typography, Card, CardContent } from "@mui/material";
+
 
 export default function SignOutView() {
   return (
-    <Container
-      maxWidth="sm"
+    <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        mt: 5,
-        p: 3,
-        bgcolor: "background.paper",
-        boxShadow: 3,
-        borderRadius: 2,
+        justifyContent: "center",
+        minHeight: "100vh"
       }}
     >
-      <Typography variant="h5" sx={{ mb: 3 }}>
-        Naozaj sa chcete odhlásiť?
-      </Typography>
-      <Button variant="contained" onClick={() => signOut()}>
-        Odhlásiť sa
-      </Button>
-    </Container>
+      <Card sx={{ boxShadow: 3, minWidth: 400}}>
+        <CardContent sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}>
+          <Typography variant="h4" >
+            Naozaj sa chcete odhlásiť?
+          </Typography>
+          <Typography sx={{ mb: 2, mt: 2 }}>
+            Vidíme sa nabudúce
+          </Typography>
+          <Button variant="outlined" onClick={() => signOut()}>
+            Odhlásiť sa
+          </Button>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }

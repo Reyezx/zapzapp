@@ -32,8 +32,6 @@ export default function Navbar() {
   const nonAuthIcons = [
     { label: "Domov", value: "/", icon: <HomeIcon /> },
     { label: "O nás", value: "/o-mne", icon: <InfoIcon />},
-    { label: "GDPR", value: "/gdpr", icon: <SecurityIcon />},
-    { label: "Podmienky", value: "/podmienky", icon: <Article /> },
     { label: "Registrácia", value: "/auth/registracia", icon: <AppRegistrationIcon /> },
     { label: "Prihlásenie", value: "/auth/prihlasenie", icon: <LoginIcon /> },
   ];
