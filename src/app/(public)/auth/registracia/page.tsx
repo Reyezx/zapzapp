@@ -18,10 +18,14 @@ export default function RegisterPage() {
   };
   const [isChecked, setIsChecked] = React.useState(false);
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-  };
-  
+  //const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //  setIsChecked(event.target.checked);
+  //};
+
+  const handleCheckboxChange = (param: string) => (event: any) => {
+      setIsChecked(event.target.checked);
+      console.log(param)
+    };
 
 
   return (
@@ -42,7 +46,7 @@ export default function RegisterPage() {
           <Typography sx={{mb: 2, mt: 2}}>
             Máte účet? <Link href="prihlasenie" color="secondary" underline="hover">Prihláste sa</Link>
           </Typography> <br />
-          <FormControlLabel sx={{justifyContent: "center"}} color="secondary" control={<Checkbox />} onChange={handleCheckboxChange} checked={isChecked} label={<p>Súhlasím s  <Link href="/gdpr" color="secondary" underline="hover">GDPR</Link> a <Link href="/podmienky" color="secondary" underline="hover">podmienkami používania</Link></p>} />
+          <FormControlLabel sx={{justifyContent: "center"}} color="secondary" control={<Checkbox />} onChange={handleCheckboxChange("")} checked={isChecked} label={<p>Súhlasím s  <Link href="/gdpr" color="secondary" underline="hover">GDPR</Link> a <Link href="/podmienky" color="secondary" underline="hover">podmienkami používania</Link></p>} />
           {isChecked ? (<CardContent sx={{ textAlign: "center", display: "flex", flexDirection: "column"}}>
           <Button
             variant="outlined"
