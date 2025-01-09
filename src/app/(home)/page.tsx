@@ -18,7 +18,7 @@ export default async function HomePage() {
 
   return (
     <Box sx={{display: "flex", justifyContent: "center", alignItems: "center", mt: 5, flexDirection: "column"}}>
-      <Typography variant='h4'> Domovská stránka - Neprihlásený user </Typography>
+      <Typography variant='h4'> Domovská stránka - Neprihláseny user </Typography>
       <Typography variant='h6'> Prihláste sa, aby ste mohli pridať príspevky a zobraziť profil. </Typography>
     </Box>
   );
