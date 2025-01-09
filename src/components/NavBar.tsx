@@ -10,13 +10,11 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SecurityIcon from '@mui/icons-material/Security';
 import { useTheme } from "../components/ThemeProvider";
 import DarkModeIcon from "@mui/icons-material/DarkMode"
 import LightModeIcon from '@mui/icons-material/LightMode';
 import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
-import Article from '@mui/icons-material/Article';
 
 export default function Navbar() {
   const { data: session } = useSession();

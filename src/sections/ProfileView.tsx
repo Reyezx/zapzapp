@@ -6,7 +6,7 @@ import {Typography, Box, Avatar} from '@mui/material';
 import { useSession } from 'next-auth/react';
 
 export default function ProfileDetailView() {
-    const { data: session, status} = useSession();
+    const { data: session} = useSession();
   
     return (
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mt: 5, flexDirection: "column", }}>
