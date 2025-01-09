@@ -1,5 +1,4 @@
 // src/app/auth/prihlasenie/page.tsx
-// @ts-nocheck
 "use client";
 
 import * as React from "react";
