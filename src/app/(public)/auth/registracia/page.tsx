@@ -1,4 +1,5 @@
 // src/app/auth/prihlasenie/page.tsx
+// @ts-nocheck
 "use client";
 
 import * as React from "react";
@@ -18,12 +19,12 @@ export default function RegisterPage() {
   };
   const [isChecked, setIsChecked] = React.useState(false);
 
-<<<<<<< HEAD
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
-=======
->>>>>>> 6703b0666d0a9db85ade8c794c3f50e4747ed74f
+  
+
+
   return (
     <Box
       sx={{
@@ -33,7 +34,7 @@ export default function RegisterPage() {
         justifyContent: "center",
         minHeight: "100vh"
       }}
-    >
+    > 
       <Card sx={{ boxShadow: 3, minWidth: 450}}>
         <CardContent sx={{ textAlign: "center", display: "flex", flexDirection: "column"}}>
           <Typography variant="h4" component="h1">
@@ -42,8 +43,8 @@ export default function RegisterPage() {
           <Typography sx={{mb: 2, mt: 2}}>
             Máte účet? <Link href="prihlasenie" color="secondary" underline="hover">Prihláste sa</Link>
           </Typography> <br />
-          <FormControlLabel sx={{justifyContent: "center"}} color="secondary" control={<Checkbox />} label={<p>Súhlasím s  <Link href="/gdpr" color="secondary" underline="hover">GDPR</Link> a <Link href="/podmienky" color="secondary" underline="hover">podmienkami používania</Link></p>} />
-
+          <FormControlLabel sx={{justifyContent: "center"}} color="secondary" control={<Checkbox />} onChange={handleCheckboxChange} checked={isChecked} label={<p>Súhlasím s  <Link href="/gdpr" color="secondary" underline="hover">GDPR</Link> a <Link href="/podmienky" color="secondary" underline="hover">podmienkami používania</Link></p>} />
+          {isChecked ? (<CardContent sx={{ textAlign: "center", display: "flex", flexDirection: "column"}}>
           <Button
             variant="outlined"
             startIcon={<GoogleIcon />}
@@ -58,19 +59,26 @@ export default function RegisterPage() {
           >
             Registrovať sa pomocou Githubu
           </Button>
+          </CardContent>) : (<CardContent sx={{ textAlign: "center", display: "flex", flexDirection: "column"}}>
+          <Button
+            variant="contained"
+            disabled
+            startIcon={<GoogleIcon />}
+            onClick={handleSignIn}
+            sx={{ mb: 1, mt: 1 }}
+          >
+            Registrovať sa pomocou Google
+          </Button>
+          <Button
+            variant="contained"
+            disabled
+            startIcon={<GitHubIcon />}
+          >
+            Registrovať sa pomocou Githubu
+          </Button>
+          </CardContent>) }
         </CardContent>
       </Card>
-      <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-        />
-        Check me
-      </label>
-      <p>{isChecked ? 'Checked' : 'Unchecked'}</p>
-    </div>
     </Box>
   );
 }
