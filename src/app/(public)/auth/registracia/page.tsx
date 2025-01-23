@@ -51,7 +51,6 @@ export default function RegisterPage() {
           <Button
             variant="outlined"
             startIcon={<GoogleIcon />}
-            onClick={handleSignIn}
             sx={{ mb: 1, mt: 1 }}
           >
             Registrovať sa pomocou Google

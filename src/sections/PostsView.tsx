@@ -1,77 +1,46 @@
-// 
+// src/sections/PostsView.tsx
 
-"use client";
-
-// React imports
-import { useEffect, useState } from "react";
-
-// MUI imports
-import Container from "@mui/material/Container";
+import { signIn } from "next-auth/react";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
+import { prisma } from "@/app/api/auth/[...nextauth]/prisma";
+import Link from "@mui/material/Link";
+import { Box } from "@mui/material";
+import Grid from '@mui/material/Grid2';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
 
-// Server action import
-import { fetchPosts } from "@/app/actions/posts";
+export default async function LoginPage() {
+  const posts = await prisma.post.findMany({
+    include: {
+      user: true,
+    },
+  });
 
-// Post interface
-interface Post {
-  id: string;
-  userId: string;
-  imageUrl: string;
-  caption?: string | null;
-  createdAt: Date; // Adjusted to match fetched data type
-  updatedAt: Date; // Adjusted to match fetched data type
-  user: {
-    name: string | null;
-  };
-}
 
-const PostsView = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const fetchedPosts: Post[] = await fetchPosts();
-        setPosts(fetchedPosts);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    };
-
-    loadPosts();
-  }, []);
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" sx={{ mb: 3 }}>
-        Príspevky
-      </Typography>
-      <Grid container spacing={2}>
+    <Box sx={{
+      flexGrow: 1,
+      display: "flex",
+      justifyContent: "right",
+      flexDirection: "column",
+      alignItems: "center",
+      height: "100%"
+    }}>
+      <Typography variant="h2" sx={{mb: 8, mt: 8,}}>Príspevky</Typography>
         {posts.map((post) => (
-          <Grid item xs={12} sm={6} md={4} key={post.id}>
-            <Card>
-              <CardMedia
+          <Card sx={{maxWidth: 600, width:"100%", boxShadow: 3, flexDirection: "column", justifyContent: "center", mb: 8, alignItems: "center", textAlign: "center"}}>
+          <Link href={"prispevok/" + post.id} underline="none" color="text.primary">
+            <CardMedia
                 component="img"
-                height="140"
                 image={post.imageUrl}
-                alt={post.caption || "Príspevok bez popisu"}
               />
-              <CardContent>
-                <Typography variant="body1">{post.caption || "Bez popisu"}</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {post.user.name || "Neznámy používateľ"}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+            <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }} color="text.primary">{post.caption}</Typography>
+            <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }} color="text.secondary">{post.user.name}</Typography>
+        </Link>
+        </Card>
         ))}
-      </Grid>
-    </Container>
+    </Box>
   );
-};
-
-export default PostsView;
+}

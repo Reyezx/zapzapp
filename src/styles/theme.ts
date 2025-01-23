@@ -32,7 +32,7 @@ const darkPalette = {
   },
   text: {
     primary: '#fff', 
-    secondary: '#a0a0a0', 
+    secondary: '#dedede', 
   },
 };
 
