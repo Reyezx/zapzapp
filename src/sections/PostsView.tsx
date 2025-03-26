@@ -27,7 +27,7 @@ export default async function LoginPage() {
       flexDirection: "column",
       alignItems: "center",
       height: "100%"
-    }}>
+    }} key={Math.random()}>
       <Typography variant="h2" sx={{mb: 8, mt: 8,}}>Príspevky</Typography>
         {posts.map((post) => (
           <Card sx={{maxWidth: 600, width:"100%", boxShadow: 3, flexDirection: "column", justifyContent: "center", mb: 8, alignItems: "center", textAlign: "center"}}>
