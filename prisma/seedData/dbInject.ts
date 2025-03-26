@@ -56,7 +56,6 @@ async function seed() {
     }
   }
 
-  console.log('Database seeded successfully!');
 }
 
 seed().catch((e) => {
