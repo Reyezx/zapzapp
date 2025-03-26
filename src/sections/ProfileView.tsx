@@ -5,66 +5,16 @@
 import {Typography, Box, Avatar, CircularProgress, Card, CardContent, CardMedia, Link} from '@mui/material';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-
-interface Post {
-  id: string;
-  imageUrl: string;
-  caption: string | null;
-  createdAt: string;
-}
-
-interface User {
-  id: string;
-  name: string | null;
-  email: string;
-  image: string | null;
-  posts: Post[];
-}
+import FetchUserId from './GetUserId';
+import hiii from "./GetUserId"
 
 export default function ProfileDetailView() {
-  const { id } = useParams();
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(`/api/users/${id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch user');
-        }
-        const userData = await response.json();
-        setUser(userData);
-      } catch (err) {
-        setError('Failed to load user profile');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (id) {
-      fetchUser();
-    }
-  }, [id]);
-
-  if (loading) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (error || !user) {
-    return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mt: 5 }}>
-        <Typography color="error">{error || 'User not found'}</Typography>
-      </Box>
-    );
-  }
   
+
+
+  hiii(useParams())
+
+
   return (
     <Box sx={{ 
       display: "flex", 
