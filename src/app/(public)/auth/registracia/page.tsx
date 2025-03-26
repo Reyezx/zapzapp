@@ -24,7 +24,6 @@ export default function RegisterPage() {
 
   const handleCheckboxChange = (param: string) => (event: any) => {
       setIsChecked(event.target.checked);
-      console.log(param)
     };
 
 
