@@ -1,29 +1,37 @@
-import { Metadata } from "next";
+// src/app/layout.tsx
+"use client";
+
 import "./globals.css";
-import Navbar from "../components/NavBar";
+import SimpleBottomNavigation from "@/components/NavBar";
 import AuthProvider from "../components/AuthProvider";
-import ThemeProvider from "../components/ThemeProvider";
+import { CssBaseline } from '@mui/material';
+import TopHeader from '@/components/TopHeader';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
-export const metadata: Metadata = {
-  title: "SnapZoška",
-  description: "Created by students of SPŠE Zochova 9, Bratislava",
-};
+//export const metadata: Metadata = {
+//  title: "SnapZoška",
+//  description: "Created by students of SPŠE Zochova 9, Bratislava",
+//};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="sk">
-      <body>
+      <body style={{ margin: 0 }}>
         <AuthProvider>
           <ThemeProvider>
-            <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-              <main style={{ flexGrow: 1 }}>
-                {children}
-              </main>
-            </div>
-            <Navbar />
+            <CssBaseline />
+            <TopHeader />
+            {children}
+            <SimpleBottomNavigation />
           </ThemeProvider>
         </AuthProvider>
       </body>
     </html>
   );
 }
+
+
