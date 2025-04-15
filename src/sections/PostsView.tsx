@@ -1,50 +1,145 @@
-// src/sections/PostsView.tsx
+"use client";
 
-import { signIn } from "next-auth/react";
-import Typography from "@mui/material/Typography";
-import { prisma } from "@/app/api/auth/[...nextauth]/prisma";
-import Link from "@mui/material/Link";
-import { Box } from "@mui/material";
-import Grid from '@mui/material/Grid2';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from "@mui/material/CardMedia";
+import { useEffect, useState } from "react";
+import {
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Box,
+  Avatar,
+  CircularProgress,
+} from "@mui/material";
+import { fetchPosts } from "@/app/actions/posts";
+import LikeButton from "@/components/LikeButton";
+import Link from "next/link";
 
-export default async function PostList() {
-  const posts = await prisma.postImage.findMany({
-    include: {
-      post: {
-        include: {
-          user: true,
-        }
+interface Post {
+  id: string;
+  userId: string;
+  caption: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  user: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  };
+  images: {
+    imageUrl: string;
+  }[];
+  likes: {
+    id: string;
+    userId: string;
+  }[];
+  _count?: {
+    comments: number;
+  };
+}
+
+export default function PostList() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const fetchedPosts = await fetchPosts();
+        setPosts(fetchedPosts);
+      } catch (error) {
+        console.error("Failed to fetch posts:", error);
+      } finally {
+        setLoading(false);
       }
-    },
-  });
+    };
 
+    loadPosts();
+  }, []);
 
+  if (loading) {
+    return (
+      <Container
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <CircularProgress />
+      </Container>
+    );
+  }
 
   return (
-    <Box sx={{
-      flexGrow: 1,
-      display: "flex",
-      justifyContent: "right",
-      flexDirection: "column",
-      alignItems: "center",
-      height: "100%"
-    }} key={Math.random()}>
-      <Typography variant="h2" sx={{mb: 8, mt: 8,}}>Príspevky</Typography>
+    <Container maxWidth="md" sx={{ mt: 4, pb: 8 }}>
+      <Typography variant="h4" sx={{ mb: 3, fontWeight: "bold", textAlign: "center" }}>
+        Zoznam Príspevkov
+      </Typography>
+      <Grid container spacing={3}>
         {posts.map((post) => (
-          <Card key={post.id} sx={{maxWidth: 600, width:"100%", boxShadow: 3, flexDirection: "column", justifyContent: "center", mb: 8, alignItems: "center", textAlign: "center"}}>
-          <Link href={"prispevok/" + post.id} underline="none" color="text.primary">
-            <CardMedia
-                component="img"
-                image={post.imageUrl}
-              />
-            <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }} color="text.primary">{post.post.caption}</Typography>
-            <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }} color="text.secondary">{post.post.user.name}</Typography>
-        </Link>
-        </Card>
+          <Grid item xs={12} key={post.id}>
+            <Card
+              sx={{
+                transition: "transform 0.3s ease-in-out, box-shadow 0.3s",
+                borderRadius: 3,
+                boxShadow: 3,
+                "&:hover": {
+                  transform: "scale(1.03)",
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <Link href={`/prispevok/${post.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                {post.images[0] && (
+                  <CardMedia
+                    component="img"
+                    image={post.images[0].imageUrl}
+                    alt={post.caption || "Príspevok bez popisu"}
+                    sx={{
+                      width: "100%",
+                      maxHeight: "500px",
+                      objectFit: "cover",
+                      borderTopLeftRadius: 12,
+                      borderTopRightRadius: 12,
+                    }}
+                  />
+                )}
+                <CardContent>
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                    <Avatar
+                      alt={post.user.name || "User"}
+                      src={post.user.image || undefined}
+                      sx={{ width: 40, height: 40, mr: 2 }}
+                    />
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      {post.user.name || "Neznámy používateľ"}
+                    </Typography>
+                  </Box>
+                  <Typography variant="body1" gutterBottom sx={{ color: "text.secondary" }}>
+                    {post.caption || "Bez popisu"}
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2, mt: 1 }}>
+                    <LikeButton
+                      postId={post.id}
+                      userId={post.user.id}
+                      initialLikes={post.likes.length}
+                      initialLiked={post.likes.some(like => like.userId === post.user.id)}
+                    />
+                    {post._count?.comments && (
+                      <Typography variant="body2" color="text.secondary">
+                        {post._count.comments} komentárov
+                      </Typography>
+                    )}
+                  </Box>
+                </CardContent>
+              </Link>
+            </Card>
+          </Grid>
         ))}
-    </Box>
+      </Grid>
+    </Container>
   );
 }
